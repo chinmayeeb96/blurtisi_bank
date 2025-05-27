@@ -120,14 +120,14 @@ function ApplicationForm() {
     
     // Add files to the request
     const fileMapping = {
-      'uploadId': 'means_of_id',
-      'uploadPhoto': 'live_photo',
+      'meansOfId': 'means_of_id',
+      'livePhoto': 'live_photo',
       'uploadEmploymentLetter': 'employment_letter',
       'uploadPayslip': 'payslip',
       'uploadNyscLetter': 'nysc_letter',
       'uploadBankStatement': 'bank_statement',
       'uploadCreditReport': 'credit_report',
-      'uploadUtilityBill': 'utility_bill',
+      'utilityBillUpload': 'utility_bill',
       'signatureUpload': 'signature'
     };
     
@@ -137,7 +137,13 @@ function ApplicationForm() {
     
     Object.entries(fileMapping).forEach(([formField, apiField]) => {
       if (formState[formField]) {
-        files[apiField] = formState[formField]; // Already base64 from handleInputChange
+        // Extract just the data property if it exists (new format)
+        if (formState[formField].data) {
+          files[apiField] = formState[formField].data;
+        } else {
+          // Fall back to the old format if needed
+          files[apiField] = formState[formField];
+        }
         hasFiles = true;
       }
     });
