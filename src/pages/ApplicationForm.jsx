@@ -341,7 +341,7 @@ function ApplicationForm() {
     return (
       <div className="step-indicator">
         {formData.steps.map((step, index) => (
-          <div key={index} className={step-item ${index + 1 <= currentStep ? 'active' : ''}}>
+          <div key={index} className={`step-item ${index + 1 <= currentStep ? 'active' : ''}`}>
             <div className="step-number">{String(index + 1).padStart(2, '0')}</div>
             <div className="step-name">{step.title}</div>
           </div>
@@ -365,7 +365,7 @@ function ApplicationForm() {
       <section className="apply-now-section">
         <div className="container">
           <div className="apply-content">
-            <div className="apply-image" style={{ backgroundImage: url(${hero1}), backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="apply-image" style={{ backgroundImage: `url(${hero1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className="apply-overlay1">
                 <h1 className="apply-title1">Apply Now For Your<br />Credit Card</h1>
               </div>
@@ -379,7 +379,7 @@ function ApplicationForm() {
           {renderStepIndicator()}
           <div className="section-label">{formData.steps[currentStep - 1].title}</div>
           <form
-            className={application-form ${getSectionClass(formData.steps[currentStep - 1].title)}-section}
+            className={`application-form ${getSectionClass(formData.steps[currentStep - 1].title)}-section`}
             onSubmit={handleSubmit}
           >
             {renderStepContent()}
