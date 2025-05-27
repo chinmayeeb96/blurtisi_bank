@@ -28,7 +28,14 @@ function ApplicationForm() {
     if (type === 'checkbox') {
       setFormState((prev) => ({ ...prev, [name]: checked }));
     } else if (type === 'file') {
-      setFormState((prev) => ({ ...prev, [name]: files[0] }));
+      const file = files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFormState((prev) => ({ ...prev, [name]: reader.result }));
+        };
+        reader.readAsDataURL(file);
+      }
     } else {
       setFormState((prev) => ({ ...prev, [name]: value }));
     }
@@ -56,7 +63,7 @@ function ApplicationForm() {
 
     const missingFields = requiredFields.filter(field => !formState[field]);
     if (missingFields.length > 0) {
-      throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+      throw new Error(Missing required fields: ${missingFields.join(', ')});
     }
 
     // Format phone number to remove any spaces or special characters
@@ -334,7 +341,7 @@ function ApplicationForm() {
     return (
       <div className="step-indicator">
         {formData.steps.map((step, index) => (
-          <div key={index} className={`step-item ${index + 1 <= currentStep ? 'active' : ''}`}>
+          <div key={index} className={step-item ${index + 1 <= currentStep ? 'active' : ''}}>
             <div className="step-number">{String(index + 1).padStart(2, '0')}</div>
             <div className="step-name">{step.title}</div>
           </div>
@@ -358,7 +365,7 @@ function ApplicationForm() {
       <section className="apply-now-section">
         <div className="container">
           <div className="apply-content">
-            <div className="apply-image" style={{ backgroundImage: `url(${hero1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="apply-image" style={{ backgroundImage: url(${hero1}), backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className="apply-overlay1">
                 <h1 className="apply-title1">Apply Now For Your<br />Credit Card</h1>
               </div>
@@ -372,7 +379,7 @@ function ApplicationForm() {
           {renderStepIndicator()}
           <div className="section-label">{formData.steps[currentStep - 1].title}</div>
           <form
-            className={`application-form ${getSectionClass(formData.steps[currentStep - 1].title)}-section`}
+            className={application-form ${getSectionClass(formData.steps[currentStep - 1].title)}-section}
             onSubmit={handleSubmit}
           >
             {renderStepContent()}
@@ -400,4 +407,4 @@ function ApplicationForm() {
   );
 }
 
-export default ApplicationForm; 
+export default ApplicationForm;
