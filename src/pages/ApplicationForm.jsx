@@ -92,7 +92,11 @@ function ApplicationForm() {
         work_address: formState.workAddress?.trim(),
         employment_start_date: formState.employmentStartDate,
         monthly_income: Number(formState.monthlyIncome.replace(/[^0-9.]/g, '')) || 0,
-        which_Card: formState.whichCard?.toLowerCase()
+        which_card: (() => {
+          const cardOptions = formData.steps[1].fields.find(f => f.id === 'whichCard')?.options || [];
+          const selected = cardOptions.find(opt => opt.value === formState.whichCard);
+          return selected?.label || formState.whichCard;
+        })()
       },
       banking_information: {
         salary_account_bank_name: formState.salaryAccountBankName?.trim(),
