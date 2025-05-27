@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 import formData from '../data/formData.json';
 import axios from 'axios';
 import boltLogo from '../assets/logoapply.svg';
-import hero1 from '../assets/Hero1.png';
+import hero1 from '../assets/hero1.png';
 
 
 function ApplicationForm() {
