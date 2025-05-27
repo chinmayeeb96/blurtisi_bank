@@ -128,7 +128,6 @@ function ApplicationForm() {
       'livePhoto': 'live_photo',
       'uploadEmploymentLetter': 'employment_letter',
       'uploadPayslip': 'payslip',
-      'uploadNyscLetter': 'nysc_letter',
       'uploadBankStatement': 'bank_statement',
       'uploadCreditReport': 'credit_report',
       'utilityBillUpload': 'utility_bill',
@@ -139,6 +138,7 @@ function ApplicationForm() {
     const files = {};
     let hasFiles = false;
     
+    // Process all non-NYSC files
     Object.entries(fileMapping).forEach(([formField, apiField]) => {
       if (formState[formField]) {
         // Extract just the data property if it exists (new format)
@@ -151,6 +151,27 @@ function ApplicationForm() {
         hasFiles = true;
       }
     });
+    
+    // Special handling for card-specific documents (remove original nysc_letter)
+    if (formState.uploadNyscLetter) {
+      const fileData = formState.uploadNyscLetter.data || formState.uploadNyscLetter;
+      
+      // Initialize all three document types as null
+      files['mdcn_data'] = null;
+      files['nysc_data'] = null;
+      files['enrollment_data'] = null;
+      
+      // Only set the appropriate file based on card selection
+      if (formState.whichCard === 'bluecard') {
+        files['mdcn_data'] = fileData;
+      } else if (formState.whichCard === 'redcard') {
+        files['nysc_data'] = fileData;
+      } else if (formState.whichCard === 'blackcard') {
+        files['enrollment_data'] = fileData;
+      }
+      
+      hasFiles = true;
+    }
     
     if (hasFiles) {
       data.files = files;
@@ -167,6 +188,7 @@ function ApplicationForm() {
     try {
       const applicationData = convertToApplicationData(formState);
       console.log('Sending application data:', applicationData);
+      console.log('Files being sent:', applicationData.files);
 
       const response = await axios.post(
         'https://w98jso2pp1.execute-api.us-east-1.amazonaws.com/prod/applications',
@@ -326,6 +348,12 @@ function ApplicationForm() {
                   dynamicLabel = 'Upload NYSC Posting Letter / ID';
                 }
               }
+              
+              // Only show uploadNyscLetter field if whichCard is selected
+              if (field.id === 'uploadNyscLetter' && !formState.whichCard) {
+                return null;
+              }
+              
               return (
                 <div key={field.id} className="form-group">
                   {field.type !== 'checkbox' && <label htmlFor={field.id}>{dynamicLabel}</label>}
