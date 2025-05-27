@@ -32,7 +32,13 @@ function ApplicationForm() {
       if (file) {
         const reader = new FileReader();
         reader.onloadend = () => {
-          setFormState((prev) => ({ ...prev, [name]: reader.result }));
+          setFormState((prev) => ({ 
+            ...prev, 
+            [name]: {
+              data: reader.result,
+              name: file.name
+            }
+          }));
         };
         reader.readAsDataURL(file);
       }
@@ -40,7 +46,7 @@ function ApplicationForm() {
       setFormState((prev) => ({ ...prev, [name]: value }));
     }
   };
-
+  
   const convertToApplicationData = (formState) => {
     // Validate required fields
     const requiredFields = [
