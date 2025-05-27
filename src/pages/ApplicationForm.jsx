@@ -132,6 +132,7 @@ function ApplicationForm() {
       'uploadCreditReport': 'credit_report',
       'utilityBillUpload': 'utility_bill',
       'signatureUpload': 'signature'
+      // uploadNyscLetter is handled separately
     };
     
     // Add files section if there are any files
@@ -152,14 +153,14 @@ function ApplicationForm() {
       }
     });
     
-    // Special handling for card-specific documents (remove original nysc_letter)
+    // Always include the three special fields (with empty strings)
+    files['mdcn_data'] = '';
+    files['nysc_data'] = '';
+    files['enrollment_data'] = '';
+    
+    // Special handling for card-specific documents
     if (formState.uploadNyscLetter) {
       const fileData = formState.uploadNyscLetter.data || formState.uploadNyscLetter;
-      
-      // Initialize all three document types as null
-      files['mdcn_data'] = null;
-      files['nysc_data'] = null;
-      files['enrollment_data'] = null;
       
       // Only set the appropriate file based on card selection
       if (formState.whichCard === 'bluecard') {
@@ -175,10 +176,19 @@ function ApplicationForm() {
     
     if (hasFiles) {
       data.files = files;
+    } else {
+      // Even if no files are uploaded, still include our three special fields as empty strings
+      data.files = {
+        'mdcn_data': '',
+        'nysc_data': '',
+        'enrollment_data': ''
+      };
     }
 
-    // Remove any undefined or null values
-    const cleanData = JSON.parse(JSON.stringify(data));
+    // Remove any undefined values but keep empty strings and nulls
+    const cleanData = JSON.parse(
+      JSON.stringify(data, (key, value) => (value === undefined ? null : value))
+    );
     return cleanData;
   };
 
@@ -189,10 +199,47 @@ function ApplicationForm() {
       const applicationData = convertToApplicationData(formState);
       console.log('Sending application data:', applicationData);
       console.log('Files being sent:', applicationData.files);
+      
+      // Log the specific fields we're concerned about
+      if (applicationData.files) {
+        console.log('Special fields status:');
+        console.log('- mdcn_data:', applicationData.files.mdcn_data && applicationData.files.mdcn_data !== '' ? 'Present' : 'Empty');
+        console.log('- nysc_data:', applicationData.files.nysc_data && applicationData.files.nysc_data !== '' ? 'Present' : 'Empty');
+        console.log('- enrollment_data:', applicationData.files.enrollment_data && applicationData.files.enrollment_data !== '' ? 'Present' : 'Empty');
+      }
+
+      // Prepare the final payload, explicitly including the three special fields
+      const apiPayload = { ...applicationData };
+      
+      // Ensure the files object exists
+      if (!apiPayload.files) {
+        apiPayload.files = {};
+      }
+      
+      // Make sure the three special fields are included (with empty strings if not set)
+      if (formState.uploadNyscLetter) {
+        const fileData = formState.uploadNyscLetter.data || formState.uploadNyscLetter;
+        
+        // Set all fields to empty strings by default
+        apiPayload.files.mdcn_data = '';
+        apiPayload.files.nysc_data = '';
+        apiPayload.files.enrollment_data = '';
+        
+        // Then set the appropriate one based on card selection
+        if (formState.whichCard === 'bluecard') {
+          apiPayload.files.mdcn_data = fileData;
+        } else if (formState.whichCard === 'redcard') {
+          apiPayload.files.nysc_data = fileData;
+        } else if (formState.whichCard === 'blackcard') {
+          apiPayload.files.enrollment_data = fileData;
+        }
+      }
+      
+      console.log('Final API payload:', apiPayload);
 
       const response = await axios.post(
         'https://w98jso2pp1.execute-api.us-east-1.amazonaws.com/prod/applications',
-        applicationData,
+        apiPayload,
         {
           headers: {
             'x-api-key': 'fF9if66Mw64LuPOtHJS8P9YDCqbWfe2t9gx5YLzw',
