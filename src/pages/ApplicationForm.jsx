@@ -63,7 +63,7 @@ function ApplicationForm() {
 
     const missingFields = requiredFields.filter(field => !formState[field]);
     if (missingFields.length > 0) {
-      throw new Error(Missing required fields: ${missingFields.join(', ')});
+      throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
     }
 
     // Format phone number to remove any spaces or special characters
