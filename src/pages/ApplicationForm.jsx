@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './ApplicationForm.css';
 import DetailedFooter from '../components/DetailedFooter';
 import ApplicationHeader from '../components/ApplicationHeader';
+import Navbar from '../components/Navbar';
 import formData from '../data/formData.json';
 import axios from 'axios';
-import hero1 from '../assets/hero1.png';
 import boltLogo from '../assets/logoapply.svg';
+import hero1 from '../assets/Hero1.png';
+
 
 function ApplicationForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,7 +21,7 @@ function ApplicationForm() {
 
   const handlePreviousStep = () => {
     setCurrentStep(currentStep - 1);
-  };
+  };  
 
   const handleInputChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -100,6 +102,35 @@ function ApplicationForm() {
         consent_data_use: Boolean(formState.consentRiskModeling)
       }
     };
+
+    
+    // Add files to the request
+    const fileMapping = {
+      'uploadId': 'means_of_id',
+      'uploadPhoto': 'live_photo',
+      'uploadEmploymentLetter': 'employment_letter',
+      'uploadPayslip': 'payslip',
+      'uploadNyscLetter': 'nysc_letter',
+      'uploadBankStatement': 'bank_statement',
+      'uploadCreditReport': 'credit_report',
+      'uploadUtilityBill': 'utility_bill',
+      'signatureUpload': 'signature'
+    };
+    
+    // Add files section if there are any files
+    const files = {};
+    let hasFiles = false;
+    
+    Object.entries(fileMapping).forEach(([formField, apiField]) => {
+      if (formState[formField]) {
+        files[apiField] = formState[formField]; // Already base64 from handleInputChange
+        hasFiles = true;
+      }
+    });
+    
+    if (hasFiles) {
+      data.files = files;
+    }
 
     // Remove any undefined or null values
     const cleanData = JSON.parse(JSON.stringify(data));
@@ -322,13 +353,13 @@ function ApplicationForm() {
 
   return (
     <div className="application-page-container">
+      <Navbar />
       <section className="apply-now-section">
         <div className="container">
           <div className="apply-content">
-            <div className="apply-image">
-              <img src={hero1} alt="Apply Now Illustration" />
-              <div className="apply-overlay">
-                <h1 className="apply-title">Apply Now For Your<br />Credit Card</h1>
+            <div className="apply-image" style={{ backgroundImage: `url(${hero1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              <div className="apply-overlay1">
+                <h1 className="apply-title1">Apply Now For Your<br />Credit Card</h1>
               </div>
             </div>
           </div>
