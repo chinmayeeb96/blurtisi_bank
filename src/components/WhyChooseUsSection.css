@@ -1,0 +1,172 @@
+.why-choose-us {
+  background: radial-gradient(circle at center, #c0d0df 0%, #e6eef5 45%); /* Radial gradient background */
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 50px 50px 0px 0px;
+  position: relative;
+  z-index: 1;
+  /* top: 4rem; */
+}
+
+.why-choose-us::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; height: 60px;
+  background: linear-gradient(to bottom, rgba(240,244,248,0) 0%, #fff 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.why-choose-us .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.why-choose-us .subtitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1e3a8a; /* Dark blue color */
+  background-color: #bfdbfe; /* Light blue background */
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 26rem;
+  position: relative;
+  top: 24rem;
+}
+
+.why-choose-us .section-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  color: #0b0c2a; /* Dark color */
+}
+
+.features-grid {
+  display: block; /* Needed for absolute positioning context */
+  position: relative; /* Container for absolutely positioned items */
+  height: 300px; /* Increase height to accommodate scattered items - adjust as needed */
+  font-size: 1.25rem;
+  font-weight: 600;
+  top: -5rem;
+  /* Removed previous flex/grid styles */
+}
+
+.feature-item {
+  background-color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  width: auto;
+  white-space: nowrap;
+  height: 56px; /* Add a fixed height for consistency */
+}
+
+/* Accurate positioning for each item based on visual estimation from the image */
+.feature-item-1 {
+  top: 40px;
+  left: 200px;
+  transform: rotate(0deg);
+}
+
+.feature-item-2 {
+  top: 40px;
+  left: 590px;
+  transform: rotate(0deg);
+}
+
+.feature-item-3 {
+  top: 130px;
+  left: 50px;
+  transform: rotate(0deg);
+}
+
+.feature-item-4 {
+  top: 130px;
+  left: 350px;
+  transform: rotate(0deg);
+}
+
+.feature-item-5 {
+  top: 230px;
+  left: 145px;
+  transform: rotate(0deg);
+}
+
+.feature-item-6 {
+  top: 230px;
+  left: 530px;
+  transform: rotate(0deg);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 1rem;   /* Reduce left margin */
+  margin-right: 0;
+  margin-top: 0;       /* Remove negative margin */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;    /* Remove background if any */
+  position: relative;
+  left: auto;
+}
+
+.feature-icon img {
+  width: 47px;   /* Make sure the icon fits well inside the circle */
+  height: 47px;
+  object-fit: contain;
+  margin-right: -2rem;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.decorative-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-text {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero-images {
+    display: none; /* Hide images on small screens for simplicity */
+  }
+
+  .hero-content {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .why-choose-us {
+    padding: 2rem 1rem;
+  }
+
+  .why-choose-us .section-title {
+    font-size: 2rem;
+  }
+
+  
+} 

@@ -1,0 +1,625 @@
+body{
+  font-family: 'Onest', Arial, sans-serif;
+}
+.application-page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+}
+
+.application-form-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 0 0;
+  border-radius: 50px 50px 0 0;
+  margin-top: -70rem;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 3.5rem 3rem;
+  border-radius: 28px;
+  font-family: 'Onest', Arial, sans-serif;
+  margin: 33rem 0 10rem 0;
+}
+
+.form-wrapper h1 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #111827;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Onest', Arial, sans-serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  width: 90%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #000000;
+  border-radius: 12px;
+  width: 25rem;
+}
+
+.form-group input,
+.form-group select {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.1rem 1.1rem;
+  font-size: 1rem;
+  color: #222;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+
+.form-group input::placeholder,
+.form-group select::placeholder {
+  color: #b8b8b8;
+  opacity: 1;
+  font-weight: 400;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border: 1.5px solid #0057ff;
+  outline: none;
+}
+
+.form-group input[type='file'] {
+  padding: 0.5rem 0;
+  background: none;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  gap: 1rem;
+  margin-left: 1.5rem;
+  position: relative;
+  left: 44%;
+  transform: translateX(-50%);
+}
+
+.form-navigation .prev-button {
+  margin-right: auto;
+}
+
+.form-navigation .next-button,
+.form-navigation .submit-button {
+  margin-left: auto;
+}
+
+.next-button, .submit-button {
+  background-color: #0053C2;
+  color: #fff;
+  font-weight: 400;
+  border-radius: 999px;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,87,255,0.08);
+  transition: background 0.2s;
+  border: none;
+}
+
+.next-button:hover, .submit-button:hover {
+  background: #003fa3;
+}
+
+.prev-button {
+  background: #e0e0e0;
+  color: #333;
+  border-radius: 999px;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  border: none;
+  position: relative;
+  left: 16%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .form-wrapper {
+    padding: 1.2rem 0.3rem;
+    border-radius: 16px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 98%;
+    margin-top: 1.5rem;
+  }
+  .section-label {
+    font-size: 1.4rem;
+  }
+  .step-indicator {
+    padding: 0.7rem 0.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-wrapper {
+    border-radius: 0;
+    padding: 0.5rem 0.1rem;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .section-label {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .step-indicator {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.4rem 0.1rem;
+    font-size: 0.8rem;
+  }
+  .form-navigation {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .form-navigation .prev-button,
+  .form-navigation .next-button,
+  .form-navigation .submit-button {
+    margin: 0;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  padding: 0rem 1rem;
+  border-radius: 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 110%;
+  position: relative;
+  right: 2rem;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #E6E6E6;
+  z-index: 1;
+  transition: background 0.3s;
+}
+
+.step-item.active:not(:last-child)::after {
+  background-color: #E6E6E6;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #EDF3FB;
+  color: #0259CD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+  font-size: 1.1rem;
+  font-weight: 400;
+  border: 2px solid #e0e0e0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.step-item.active .step-number {
+  background: #0053c2;
+  color: #fff;
+  border: 2px solid #0057ff;
+  height: 41px;
+  width: 41px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.step-name {
+  font-size: 1rem;
+  text-align: center;
+  color: #b0b0b0;
+  font-weight: 400;
+  transition: color 0.2s;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: none;
+  display: block;
+}
+
+.step-item.active .step-name {
+  color: #111827;
+  font-weight: 400;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+  font-family: 'Onest', Arial, sans-serif;
+}
+
+.custom-file-dropzone {
+  position: relative;
+  width: 100%;
+}
+
+.file-dropzone-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 60px;
+  padding: 0 1.5rem;
+  border: 2px solid #ececec;
+  border-radius: 24px;
+  background: #fff;
+  color: #d1d5db !important;
+  font-size: 1.35rem;
+  font-weight: 400 !important;
+  cursor: pointer;
+  transition: border 0.2s;
+  user-select: none;
+}
+
+.file-dropzone-label:hover, .file-dropzone-label:focus-within {
+  border-color: #ececec;
+}
+
+.file-dropzone-label span,
+.file-dropzone-label svg {
+  color: #d1d5db !important;
+  font-weight: 400 !important;
+}
+
+.file-upload-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.file-dropzone-input {
+  display: none;
+}
+
+.form-group select,
+.form-group select option {
+  color: #222 !important;
+}
+
+select.placeholder {
+  color: #d1d5db !important;
+}
+
+select.placeholder option:not([disabled]) {
+  color: #222 !important;
+}
+
+select option[disabled] {
+  color: #d1d5db !important;
+  font-weight: 400;
+}
+
+select:invalid,
+select option[value=''] {
+  color: #d1d5db !important;
+  font-weight: 400;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  user-select: none;
+  gap: 0.5rem;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #fff;
+  border: 2px solid #bdbdbd;
+  display: inline-block;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background: #0053C2;
+  border-color: #0053C2;
+}
+
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark:after {
+  display: block;
+}
+
+.custom-checkbox .checkmark:after {
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+}
+
+.application-form {
+  background-color: #EDF3FB66;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  border-radius: 18px;
+  padding: 0.5rem;
+  margin: 1rem 1rem;
+  max-width: 980px;
+  height: 46rem;
+  position: relative;
+  left: 6%;
+}
+
+/* Section-specific styles for each step */
+.application-form.personal-identification-section {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 2.5rem 2rem;
+  height: 47rem;
+}
+
+.application-form.employment-and-income-section {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 2rem 1.5rem;
+  height: 48rem;
+}
+
+.application-form.banking-information-section {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 2rem 1.5rem;
+  height: 25rem;
+}
+
+.application-form.financial-history-section {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 2rem 1.5rem;
+  height: 32rem;
+}
+
+.application-form.lifestyle-information-section {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 2rem 1.5rem;
+  height: 32rem;
+}
+
+.application-form.consent-and-declarations-section {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(206, 34, 77, 0.10);
+  padding: 1.5rem 1rem;
+  height: 24rem;
+}
+
+/* Position the signature field at the left bottom for Consent & Declarations */
+.application-form.consent-and-declarations-section .step-content {
+  position: relative;
+}
+.signature-bottom-left {
+  position: absolute;
+  left: 3rem;
+  top: 6.5rem;
+  width: 45%;
+  max-width: 350px;
+}
+@media (max-width: 900px) {
+  .signature-bottom-left {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+.application-form.consent-and-declarations-section .signature-bottom-left .file-dropzone-label {
+  width: 240%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.consent-and-declarations-section .form-navigation {
+  margin-top: 8rem;
+}
+
+/* Apply Now Section Styles */
+.apply-now-section {
+  height: 100vh;
+}
+
+.apply-now-section .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.apply-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.apply-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.apply-image img {
+  width: 100%;
+  height: 41.1vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.apply-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+}
+
+.apply-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.apply-title {
+  font-size: 5.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove old logo overlay styles */
+.logo-overlay-container,
+.logo-image,
+.logo-overlay-text {
+  display: none;
+}
+
+/* Custom dropdown arrow for select fields */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23737373" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 0.5rem center/1.5em 1.5em;
+  padding-right: 3.5rem;
+  cursor: pointer;
+}
+
+/* Hide default arrow in IE/Edge */
+.form-group select::-ms-expand {
+  display: none;
+}
+
+.application-form.employment-and-income-section .form-group:last-child .file-dropzone-label {
+  width: 209%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.banking-information-section .form-group:last-child .file-dropzone-label {
+  width: 209%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.banking-information-section .form-group:last-child .file-dropzone-label {
+  width: 209%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.financial-history-section .form-group:last-child .file-dropzone-label {
+  width: 209%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.lifestyle-information-section .form-group:last-child .file-dropzone-label {
+  width: 209%;
+  min-width: 350px;
+  max-width: 1000px;
+}
+
+.application-form.consent-and-declarations-section .signature-bottom-left .file-dropzone-label {
+  width: 240%;
+  min-width: 350px;
+  max-width: 1000px;
+} 

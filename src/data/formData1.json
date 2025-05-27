@@ -1,0 +1,40 @@
+{
+  "personal_information": {
+    "full_name": "John Doe",
+    "date_of_birth": "01/01/1990",
+    "gender": "Male",
+    "phone_number": "+1234567890",
+    "email": "johndoe@example.com",
+    "residential_address": "2118 Thomridge Cir, Syracuse, CT 35624",
+    "nin": "982153747856",
+    "bvn": "1322345679"
+  },
+  "employment_and_income": {
+    "employment_status": "Full-Time",
+    "employer_name": "MNC Corp",
+    "work_address": "2118 Thomridge Cir, Syracuse, 645",
+    "employment_start_date": "01/01/2020",
+    "monthly_income": "6452.00"
+  },
+  "banking_information": {
+    "salary_account_bank_name": "Access Bank",
+    "bank_account_number": "92156784532545"
+  },
+  "financial_history": {
+    "has_existing_loans": "No",
+    "monthly_loan_repayment": "0.00",
+    "has_loan_defaults": "No",
+    "owns_credit_cards": "Yes"
+  },
+  "lifestyle_information": {
+    "marital_status": "Single",
+    "number_of_dependents": "0",
+    "mode_of_transport": "Public",
+    "residence_type": "Rent"
+  },
+  "consents": {
+    "consent_bvn_access": true,
+    "consent_credit_history_access": true,
+    "consent_data_use": true
+  }
+}

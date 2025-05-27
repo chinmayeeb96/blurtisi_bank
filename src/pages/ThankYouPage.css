@@ -1,0 +1,164 @@
+.thank-you-page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0053C2 0%, #23135B 100%);
+    color: white;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    width: 100%;
+}
+
+.logo-container {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    /* height: 45px; */
+    width: 100%
+    /* object-fit: contain; */
+}
+
+.credit-card-button {
+    background: #BB133E;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.credit-card-button:hover {
+    background: #d41546;
+}
+
+.thank-you-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50%;
+}
+
+.thank-you-wrapper {
+    width: 85%; /* Adjust as needed */
+    background: #fff; /* White background */
+    padding: 0rem; /* Increased padding */
+    border-radius: 50px 50px 0 0;
+    text-align: center;
+    color: #000000; /* Dark text color */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Same shadow as form */
+}
+
+.checkmark-icon {
+    width: 100px; /* Adjust size as needed */
+    height: 150px;
+    margin-bottom: 1.5rem;
+    /* You might want to add a subtle animation or style here */
+}
+
+.thank-you-wrapper h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #0b0c2a; /* Dark blue heading color */
+    font-weight: 600;
+}
+
+.thank-you-wrapper p {
+    font-size: 1.1rem;
+    color: #555; /* Slightly lighter text color */
+    margin-bottom: 2rem;
+}
+
+.back-to-home-link {
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #0053C2; /* Link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.back-to-home-link:hover {
+    color: #e21b4c; /* Link hover color */
+}
+
+.download-app-section {
+    margin-top: 5rem;
+    padding-top: 5rem;
+    position: relative;
+}
+
+.download-app-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+.download-app-section p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.app-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    width: 140%;
+    padding: 0% 0% 15% 0%;
+    margin: 0% -20%;
+}
+
+.app-badge {
+    height: 50px; /* Adjust badge size as needed */
+    width: auto; /* Ensure consistent size while maintaining aspect ratio */
+    /* Add hover effects if desired */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .thank-you-wrapper {
+        padding: 2rem; /* Adjusted padding for smaller screens */
+    }
+
+    .checkmark-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .thank-you-wrapper h2 {
+        font-size: 1.5rem;
+    }
+
+    .thank-you-wrapper p {
+        font-size: 1rem;
+    }
+
+    .app-badges {
+        flex-direction: column; /* Stack badges on smaller screens */
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .app-badge {
+        height: 40px; /* Adjusted badge size for smaller screens */
+        width: auto; /* Ensure consistent size */
+    }
+} 

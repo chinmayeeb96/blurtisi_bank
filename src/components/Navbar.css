@@ -1,0 +1,111 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* background: rgba(0, 0, 0, 0.2); */
+    /* backdrop-filter: blur(5px); */
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.navbar-logo {
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: -4rem;
+}
+
+.navbar-button {
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: -5rem;
+}
+  
+.logo-img {
+    height: 40px;
+}
+  
+.credit-card-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #BB133E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+  
+.credit-card-button:hover {
+    background-color: #ce224d;
+}
+
+/* Large Screens (1200px and up) */
+@media screen and (min-width: 1200px) {
+    .navbar {
+        padding: 1rem 14rem;
+    }
+}
+
+/* Medium-Large Screens (992px to 1199px) */
+@media screen and (max-width: 1199px) {
+    .navbar {
+        padding: 1rem 6rem;
+    }
+}
+
+/* Medium Screens (768px to 991px) */
+@media screen and (max-width: 991px) {
+    .navbar {
+        padding: 1rem 4rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+    }
+    
+    .credit-card-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Screens (576px to 767px) */
+@media screen and (max-width: 767px) {
+    .navbar {
+        padding: 0.75rem 2rem;
+    }
+    
+    .logo-img {
+        height: 30px;
+    }
+    
+    .credit-card-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Screens (575px and below) */
+@media screen and (max-width: 575px) {
+    .navbar {
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .logo-img {
+        height: 25px;
+    }
+    
+    .credit-card-button {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.8rem;
+    }
+} 

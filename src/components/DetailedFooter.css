@@ -1,0 +1,168 @@
+.detailed-footer {
+  padding: 3rem 2rem;
+  background-color: #ffffff; /* White background */
+  color: #555;
+  font-size: 0.9rem;
+  font-family: 'Onest', sans-serif; /* Apply Roboto font */
+}
+
+.detailed-footer .container {
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  width: 83%;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0rem;
+  
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.footer-logo {
+  /* Styling for logo container */
+  margin-right: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-right-group {
+    display: flex; /* Use flexbox for the right group */
+    align-items: center; /* Align items vertically */
+    gap: 2rem; /* Space between contact and social */
+    margin-top: 4rem;
+}
+
+.footer-logo-img {
+    height: 50px; /* Adjust as needed */
+    margin-bottom: 1.5rem; /* Add space between logo and tagline */
+}
+
+.footer-tagline {
+    flex-grow: 0;
+    margin-right: 0;
+    color: #000000; /* Adjust color if needed */
+    font-size: 1rem;
+}
+
+.footer-tagline p {
+    margin: 0;
+    font-weight: 400; /* Made bold */
+}
+
+.footer-contact {
+  font-size: 1rem;
+  display: flex; /* Use flexbox to arrange items */
+  flex-direction: row; /* Arrange items horizontally */
+  gap: 1.5rem; /* Add space between phone and email */
+  align-items: center; /* Vertically align items */
+  color: #000000;
+}
+
+.footer-contact p {
+  margin: 0;
+  font-weight: 400; /* Made bold */
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  /* Placeholder for social icons */
+  width: 20px; /* Made a bit smaller */
+  height: 20px; /* Made a bit smaller */
+  /* background-color: #ccc; Remove placeholder background */
+  /* border-radius: 5px; Remove placeholder border-radius */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0rem;
+  flex-wrap: wrap; /* Allow items to wrap */
+}
+
+.footer-links a {
+  color: #000000;
+  text-decoration: none;
+  margin-right: 1rem;
+  font-weight: 400; /* Made bold */
+  font-size: 0.9rem;
+}
+
+.footer-links a:last-child {
+  margin-right: 0;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  /* Add margin for wrapping */
+  font-size: 0.9rem;
+  color: #000000;
+}
+
+.footer-copyright p {
+     /* Add margin for wrapping */
+    font-weight: 400; /* Made bold */
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 2rem 0;
+    width: 100%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+      margin: 1rem 0;
+      align-items: center;
+  }
+
+  .footer-right-group {
+      flex-direction: column; /* Stack contact and social on smaller screens */
+      gap: 1rem; /* Adjust gap for smaller screens */
+      margin: 1rem 0; /* Add margin for wrapping */
+  }
+
+  .footer-tagline,
+  .footer-contact,
+  .footer-social,
+  .footer-links,
+  .footer-copyright {
+    margin: 1rem 0;
+  }
+
+  .footer-links a {
+      margin: 0.5rem;
+  }
+
+  .footer-contact {
+      flex-direction: column; /* Stack contact info on smaller screens */
+      gap: 0.3rem; /* Adjust gap for smaller screens */
+  }
+
+  .social-icon {
+      width: 18px; /* Adjusted size for smaller screens */
+      height: 18px; /* Adjusted size for smaller screens */
+      width: auto; /* Ensure consistent size */
+  }
+} 

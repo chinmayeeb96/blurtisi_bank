@@ -1,0 +1,336 @@
+{
+  "steps": [
+    {
+      "title": "Personal Information",
+      "fields": [
+        {
+          "id": "fullName",
+          "label": "Full Name",
+          "type": "text",
+          "placeholder": "e.g. John Doe",
+          "required": true
+        },
+        {
+          "id": "dateOfBirth",
+          "label": "Date of Birth",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY",
+          "required": true
+        },
+        {
+          "id": "gender",
+          "label": "Gender",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your gender" },
+            { "value": "male", "label": "Male" },
+            { "value": "female", "label": "Female" },
+            { "value": "other", "label": "Other" }
+          ],
+          "required": true
+        },
+        {
+          "id": "phone",
+          "label": "Phone Number",
+          "type": "tel",
+          "placeholder": "e.g. +1 234 7896 7896",
+          "required": true
+        },
+        {
+          "id": "email",
+          "label": "Email Address",
+          "type": "email",
+          "placeholder": "e.g. Johndoe@gmail.com",
+          "required": true
+        },
+        {
+          "id": "residentialAddress",
+          "label": "Residential Address",
+          "type": "text",
+          "placeholder": "e.g. 2118 Thomridge Cir. Syracuse, Connecticut 35624",
+          "required": true
+        },
+        {
+          "id": "nin",
+          "label": "NIN (National Identity Number)",
+          "type": "text",
+          "placeholder": "e.g. 982153747856",
+          "required": true
+        },
+        {
+          "id": "bvn",
+          "label": "BVN (Bank Verification Number)",
+          "type": "text",
+          "placeholder": "e.g. 1322345679",
+          "required": true
+        },
+        {
+          "id": "meansOfId",
+          "label": "Means of ID",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        },
+        {
+          "id": "livePhoto",
+          "label": "Live Photo / Selfie",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Employment & Income",
+      "fields": [
+        {
+          "id": "employmentStatus",
+          "label": "Employment Status",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your Employment Status" },
+            { "value": "employed", "label": "Employed" },
+            { "value": "self-employed", "label": "Self Employed" },
+            { "value": "unemployed", "label": "Unemployed" },
+            { "value": "student", "label": "Student" }
+          ],
+          "required": true
+        },
+        {
+          "id": "employerName",
+          "label": "Employer Name",
+          "type": "text",
+          "placeholder": "e.g. MNC Corp",
+          "required": true
+        },
+        {
+          "id": "workAddress",
+          "label": "Work Address",
+          "type": "text",
+          "placeholder": "e.g. 2118 Thomridge Cir. Syracuse, 645",
+          "required": true
+        },
+        {
+          "id": "employmentStartDate",
+          "label": "Employment Start Date",
+          "type": "text",
+          "placeholder": "DD/MM/YYYY",
+          "required": true
+        },
+        
+        {
+          "id": "monthlyIncome",
+          "label": "Monthly Salary / Income",
+          "type": "text",
+          "placeholder": "e.g. $6452.00",
+          "required": true
+        },
+        {
+          "id": "uploadPayslip",
+          "label": "Upload Payslip",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        },
+        {
+          "id": "uploadEmploymentLetter",
+          "label": "Upload Employment Letter or ID",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        },
+        {
+          "id": "whichCard",
+          "label": "Select Your Card",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select card type" },
+            { "value": "redcard", "label": "Ruby Corps Members Card" },
+            { "value": "bluecard", "label": "Blue Medic Card" },
+            { "value": "blackcard", "label": "Onyx Military Personnel Card" }
+            
+          ],
+          "required": true
+        },
+        {
+          "id": "uploadNyscLetter",
+          "label": "Upload NYSC Posting Letter / ID",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Banking Information",
+      "fields": [
+        {
+          "id": "salaryAccountBankName",
+          "label": "Salary Account Bank Name",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your bank" },
+            { "value": "access", "label": "Access Bank" },
+            { "value": "zenith", "label": "Zenith Bank" },
+            { "value": "firstbank", "label": "First Bank" },
+            { "value": "uba", "label": "UBA" },
+            { "value": "gtb", "label": "GTB" }
+          ],
+          "required": true
+        },
+        {
+          "id": "bankAccountNumber",
+          "label": "Bank Account Number",
+          "type": "text",
+          "placeholder": "e.g. 92156784532545",
+          "required": true
+        },
+        {
+          "id": "uploadBankStatement",
+          "label": "Upload 6 Months Bank Statement",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Financial History",
+      "fields": [
+        {
+          "id": "existingLoans",
+          "label": "Do you have existing loans?",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" }
+          ],
+          "required": true
+        },
+        {
+          "id": "monthlyLoanRepayment",
+          "label": "Total Monthly Loan Repayment",
+          "type": "text",
+          "placeholder": "e.g. $2400.00",
+          "required": true
+        },
+        {
+          "id": "pastLoanDefaults",
+          "label": "Any past loan defaults?",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" }
+          ],
+          "required": true
+        },
+        {
+          "id": "ownCreditCards",
+          "label": "Do you currently own any credit cards?",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" }
+          ],
+          "required": true
+        },
+        {
+          "id": "uploadCreditReport",
+          "label": "Upload Credit Report (Optional)",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": false
+        }
+      ]
+    },
+    {
+      "title": "Lifestyle Information",
+      "fields": [
+        {
+          "id": "maritalStatus",
+          "label": "Marital Status",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "single", "label": "Single" },
+            { "value": "married", "label": "Married" },
+            { "value": "divorced", "label": "Divorced" },
+            { "value": "widowed", "label": "Widowed" }
+          ],
+          "required": true
+        },
+        {
+          "id": "numberOfDependents",
+          "label": "Number of Dependents",
+          "type": "text",
+          "placeholder": "e.g. 04",
+          "required": true
+        },
+        {
+          "id": "modeOfTransport",
+          "label": "Mode of Transport",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "car", "label": "Car" },
+            { "value": "public", "label": "Public Transport" },
+            { "value": "bike", "label": "Bike" },
+            { "value": "walk", "label": "Walk" }
+          ],
+          "required": true
+        },
+        {
+          "id": "rentOrOwnHome",
+          "label": "Rent or Own Home",
+          "type": "select",
+          "options": [
+            { "value": "", "label": "Select your answer" },
+            { "value": "rent", "label": "Rent" },
+            { "value": "own", "label": "Own" }
+          ],
+          "required": true
+        },
+        {
+          "id": "utilityBillUpload",
+          "label": "Utility Bill Upload",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Consent & Declarations",
+      "fields": [
+        {
+          "id": "consentBvn",
+          "label": "I grant my consent to access my BVN",
+          "type": "checkbox",
+          "required": true
+        },
+        {
+          "id": "consentCreditHistory",
+          "label": "I grant my consent to access my Credit History",
+          "type": "checkbox",
+          "required": true
+        },
+        {
+          "id": "consentRiskModeling",
+          "label": "I grant my consent to use data for risk modeling",
+          "type": "checkbox",
+          "required": true
+        },
+        {
+          "id": "signatureUpload",
+          "label": "Signature (digital or scanned)",
+          "type": "file",
+          "accept": ".png,.jpeg,.jpg,.pdf",
+          "required": true
+        }
+      ]
+    }
+  ]
+} 

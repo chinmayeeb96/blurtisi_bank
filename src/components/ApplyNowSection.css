@@ -1,0 +1,146 @@
+.apply-now-section {
+  /* padding: 4rem 0;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); */
+  /* color: white;
+  position: relative; */
+  /* overflow: hidden; */
+  /* min-height: 100vh;
+  display: flex;
+  align-items: center; */
+  height: 100vh;
+}
+
+.apply-now-section .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.apply-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.apply-text {
+  flex: 1;
+  text-align: left;
+}
+
+.apply-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.apply-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.apply-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  pointer-events: none;
+}
+
+.apply-overlay .apply-subtitle,
+.apply-overlay .apply-title,
+.apply-overlay .apply-now-button {
+  pointer-events: auto;
+}
+
+.apply-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.apply-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.apply-now-button {
+  background-color: #e21b4c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.apply-now-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(226, 27, 76, 0.3);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .apply-now-section {
+    min-height: 80vh;
+  }
+
+  .apply-image img {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .apply-now-section {
+    min-height: 60vh;
+  }
+
+  .apply-image img {
+    height: 60vh;
+  }
+
+  .apply-title {
+    font-size: 2rem;
+  }
+
+  .apply-subtitle {
+    font-size: 1rem;
+  }
+
+  .apply-now-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+} 
