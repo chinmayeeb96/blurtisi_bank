@@ -79,7 +79,7 @@ function ApplicationForm() {
         work_address: formState.workAddress?.trim(),
         employment_start_date: formState.employmentStartDate,
         monthly_income: Number(formState.monthlyIncome.replace(/[^0-9.]/g, '')) || 0,
-        card_type: formState.whichCard?.toLowerCase()
+        which_Card: formState.whichCard?.toLowerCase()
       },
       banking_information: {
         salary_account_bank_name: formState.salaryAccountBankName?.trim(),
